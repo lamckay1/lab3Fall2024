@@ -31,8 +31,8 @@ module stimulus ();
    always 
      begin
 	desc3 = handle3;
-	#5 $fdisplay(desc3, "%b %b || %b", 
-		     reset, a, y);
+	     #5 $fdisplay(desc3, "%b %b %b || %b %b %b %b %b %b", 
+		     reset, L, R , La, Lb, Lc, Ra, Rb, Rc);
      end   
    
    initial 
