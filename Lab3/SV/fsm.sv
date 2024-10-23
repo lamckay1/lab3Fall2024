@@ -31,7 +31,7 @@ module FSM (clk, reset, L, R, La, Lb, Lc, Ra, Rb, Rc);
 	       else  if(R) nextstate <= S4;
        end
        S1: begin
-	  	La <= 1'b1;
+	       La <= 1'b1;
 	       Lb <= 1'b0;
 	       Lc <= 1'b0;
 	       Ra <= 1'b0;
@@ -40,12 +40,60 @@ module FSM (clk, reset, L, R, La, Lb, Lc, Ra, Rb, Rc);
 	  	nextstate <= S2;
        end
        S2: begin
-	  y <= 1'b1;	  	  
-	  if (a) nextstate <= S2;
-	  else   nextstate <= S0;
+	  La <= 1'b1;
+	  Lb <= 1'b1;
+	  Lc <= 1'b0;
+	  Ra <= 1'b0;
+	  Rb <= 1'b0;
+	  Rc <= 1'b0;	  
+	   nextstate <= S2;
        end
-       default: begin
-	  y <= 1'b0;	  	  
+	S3: begin
+	  La <= 1'b1;
+	  Lb <= 1'b1;
+	  Lc <= 1'b1;
+	  Ra <= 1'b0;
+	  Rb <= 1'b0;
+	  Rc <= 1'b0;	  
+	   nextstate <= S0;
+       end
+	     S4: begin
+	  La <= 1'b0;
+	  Lb <= 1'b0;
+	  Lc <= 1'b0;
+	  Ra <= 1'1;
+	  Rb <= 1'b0;
+	  Rc <= 1'b0;	  
+	   nextstate <= S5;
+       end
+	     S5: begin
+	  La <= 1'b0;
+	  Lb <= 1'b0;
+	  Lc <= 1'b0;
+	  Ra <= 1'b1;
+	  Rb <= 1'b1;
+	  Rc <= 1'b0;	  
+	   nextstate <= S6;
+       end
+	      S6: begin
+	  La <= 1'b0;
+	  Lb <= 1'b0;
+	  Lc <= 1'b0;
+	  Ra <= 1'b1;
+	  Rb <= 1'b1;
+	  Rc <= 1'b1;	  
+	   nextstate <= S0;
+       end
+	      S7: begin
+	  La <= 1'b1;
+	  Lb <= 1'b1;
+	  Lc <= 1'b1;
+	  Ra <= 1'b1;
+	  Rb <= 1'b1;
+	  Rc <= 1'b1;	  
+	   nextstate <= S0;
+       end
+       default: begin	  	  
 	  nextstate <= S0;
        end
      endcase
