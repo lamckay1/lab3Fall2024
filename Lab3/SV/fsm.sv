@@ -27,7 +27,7 @@ module FSM (clk, reset, L, R, La, Lb, Lc, Ra, Rb, Rc);
 	       Rc <= 1'b0;
 	       
 	       if(L&R) nextstate <= S7;
-	       if (L) nextstate <= S1;
+	       else if (L) nextstate <= S1;
 	       else  if(R) nextstate <= S4;
        end
        S1: begin
