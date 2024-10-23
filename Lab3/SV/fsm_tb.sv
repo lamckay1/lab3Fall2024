@@ -2,16 +2,16 @@
 module stimulus ();
 
    logic  clk;
-   logic  a;
+   logic  L, R;
    logic  reset;
    
-   logic  y;
+   logic  La, Lb, Lc, Ra, Rb, Rc;
    
    integer handle3;
    integer desc3;
    
    // Instantiate DUT
-   FSM dut (clk, reset, a, y);   
+	FSM dut (clk, reset, .L(L), .R(R), La, Lb, Lc, Ra, Rb, Rc);   
    
    // Setup the clock to toggle every 1 time units 
    initial 
