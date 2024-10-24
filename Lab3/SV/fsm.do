@@ -39,10 +39,16 @@ view wave
 # Diplays All Signals recursively
 # add wave -hex -r /stimulus/*
 add wave -noupdate -divider -height 32 "FSM"
-add wave -hex /stimulus/dut/y
+add wave -hex /stimulus/dut/L
+add wave -hex /stimulus/dut/R
 add wave -hex /stimulus/dut/reset
 add wave -hex /stimulus/dut/clk
-add wave -hex /stimulus/dut/a
+add wave -hex /stimulus/dut/La
+add wave -hex /stimulus/dut/Lb
+add wave -hex /stimulus/dut/Lc
+add wave -hex /stimulus/dut/Ra
+add wave -hex /stimulus/dut/Rb
+add wave -hex /stimulus/dut/Rc
 add wave -hex /stimulus/dut/state
 add wave -hex /stimulus/dut/nextstate
 
@@ -63,6 +69,6 @@ configure wave -rowmargin 4
 configure wave -childrowmargin 2
 
 -- Run the Simulation
-run 111 ns
+run 300 ns
 
 
