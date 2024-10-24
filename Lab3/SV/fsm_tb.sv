@@ -11,7 +11,7 @@ module stimulus ();
    integer desc3;
    
    // Instantiate DUT
-	FSM dut (clk, reset, .L(L), .R(R), La, Lb, Lc, Ra, Rb, Rc);   
+	FSM dut (clk, reset, L, R, La, Lb, Lc, Ra, Rb, Rc);   
    
    // Setup the clock to toggle every 1 time units 
    initial 
@@ -37,14 +37,13 @@ module stimulus ();
    
    initial 
      begin      
-	#0   reset = 1'b1;
-	#20  reset = 1'b0;
+	
+	#0  reset = 1'b0;
 	#20  L = 1'b1;
-	#0   L = 1'b0;
-        #0   reset = 1'b1;
-	#20  reset = 1'b0;
+     #20  L = 1'b0;
 	#20  R = 1'b1;
-	#20  L = 1'b1;
+	#40  L = 1'b1;
+     #40   reset = 1'b1;
      end
 
 endmodule // FSM_tb
